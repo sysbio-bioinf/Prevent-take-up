@@ -1,0 +1,544 @@
+{
+    "name": "Bewertungsbogen der App",
+    "instructions": "Vielen Dank für Ihre Teilnahme an der Bewertung der „Prevent-Take-Up“ App. Es werden dabei keine persönlichen Daten übermittelt.",
+    "questions": [{
+            "questionType": "SingleChoice",
+            "questionID": "id.age",
+            "text": "Wie alt sind Sie?",
+            "answers": [{
+                    "text": "30 Jahre oder jünger",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.sex",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "zwischen 30 und 50 Jahren",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.sex",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "zwischen 50 und 70 Jahren",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.sex",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.sex",
+            "questionType": "SingleChoice",
+            "text": "Welches Geschlecht haben Sie?",
+            "answers": [{
+                    "text": "männlich",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.recommend",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "weiblich",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.recommend",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "divers",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.recommend",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.recommend",
+            "questionType": "SingleChoice",
+            "text": "Haben Sie von der Prevent-Take-Up-Anwendung die Empfehlung erhalten, eine/n Ärztin/ Arzt aufzusuchen?",
+            "answers": [{
+                    "text": "Ja",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.understandable",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Nein",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.understandable",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.understandable",
+            "questionType": "SingleChoice",
+            "text": "Ich finde, die Fragen der App sind verständlich.",
+            "answers": [{
+                    "text": "0 (lehne völlig ab)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.manyQuestions",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "1",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.manyQuestions",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "2",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.manyQuestions",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "3",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.manyQuestions",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "4 (stimme völlig zu)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.manyQuestions",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.manyQuestions",
+            "questionType": "SingleChoice",
+            "text": "Ich finde, die Anzahl der Fragen ist zu hoch.",
+            "answers": [{
+                    "text": "0 (lehne völlig ab)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.fewQuestions",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "1",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.fewQuestions",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "2",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.fewQuestions",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "3",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.fewQuestions",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "4 (stimme völlig zu)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.fewQuestions",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.fewQuestions",
+            "questionType": "SingleChoice",
+            "text": "Ich finde, die Anzahl der Fragen ist zu niedrig.",
+            "answers": [{
+                    "text": "0 (lehne völlig ab)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.resultsUnderstandable",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "1",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.resultsUnderstandable",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "2",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.resultsUnderstandable",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "3",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.resultsUnderstandable",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "4 (stimme völlig zu)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.resultsUnderstandable",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.resultsUnderstandable",
+            "questionType": "SingleChoice",
+            "text": "Ich finde, die Ergebnisse der App sind verständlich.",
+            "answers": [{
+                    "text": "0 (lehne völlig ab)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.informationUnderstandable",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "1",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.informationUnderstandable",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "2",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.informationUnderstandable",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "3",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.informationUnderstandable",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "4 (stimme völlig zu)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.informationUnderstandable",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.informationUnderstandable",
+            "questionType": "SingleChoice",
+            "text": "Ich finde, die Informationen der App sind verständlich.",
+            "answers": [{
+                    "text": "0 (lehne völlig ab)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseKnowledge",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "1",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseKnowledge",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "2",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseKnowledge",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "3",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseKnowledge",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "4 (stimme völlig zu)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseKnowledge",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.increaseKnowledge",
+            "questionType": "SingleChoice",
+            "text": "Die App „Prevent-Take-Up“ hat meinen Kenntnisstand bei der Krebsvorsorge bzw. -früherkennung von Brust-, Darm- und Prostatakrebs verbessert.",
+            "answers": [{
+                    "text": "0 (lehne völlig ab)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseInformation",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "1",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseInformation",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "2",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseInformation",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "3",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseInformation",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "4 (stimme völlig zu)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseInformation",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.increaseInformation",
+            "questionType": "SingleChoice",
+            "text": "Nach Nutzung der App „Prevent-Take-Up“ fühle ich mich gut über Krebsvorsorge bzw. -früherkennung von Brust-, Darm- und Prostatakrebs informiert.",
+            "answers": [{
+                    "text": "0 (lehne völlig ab)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseAwareness",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "1",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseAwareness",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "2",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseAwareness",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "3",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseAwareness",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "4 (stimme völlig zu)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.increaseAwareness",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.increaseAwareness",
+            "questionType": "SingleChoice",
+            "text": "Durch die Anwendung der „Prevent-Take-Up“-App möchte ich mehr über die Früherkennung und Vorsorge von Krebserkrankungen erfahren.",
+            "answers": [{
+                    "text": "0 (lehne völlig ab)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.followAdvice",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "1",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.followAdvice",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "2",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.followAdvice",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "3",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.followAdvice",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "4 (stimme völlig zu)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.followAdvice",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.followAdvice",
+            "questionType": "SingleChoice",
+            "text": "Falls die „Prevent-Take-Up“-App Ihnen einen Arztbesuch empfohlen hat, werden Sie dieser Empfehlung folgen und Ihren Arzt/ Ihre Ärztin zu einem Beratungsgespräch aufsuchen?",
+            "answers": [{
+                    "text": "ja",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.comments",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "nein",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.comments",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "ich weiß nicht",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.comments",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.comments",
+            "questionType": "TextInput",
+            "text": "Offenes Feedback",
+            "answers": [{
+                    "text": "bitte feedback hier eingeben",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.end",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "nein",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.end",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "ich weiß nicht",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.end",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        }
+    ],
+    "interpretations": [{
+            "score": 31,
+            "text": "Extremely satisfied"
+        },
+        {
+            "score": 26,
+            "text": "Satisfied"
+        },
+        {
+            "score": 21,
+            "text": "Slightly satisfied"
+        },
+        {
+            "score": 20,
+            "text": "Neutral"
+        },
+        {
+            "score": 15,
+            "text": "Slightly dissatisfied"
+        },
+        {
+            "score": 10,
+            "text": "Dissatisfied"
+        },
+        {
+            "score": 5,
+            "text": "Extremely dissatisfied"
+        }
+    ]
+}

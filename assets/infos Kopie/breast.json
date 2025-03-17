@@ -1,0 +1,28 @@
+{
+    "name": "Informationen zu Brustkrebs",
+    "topics": [{
+            "name": "Was ist Brustkrebs?",
+            "text": "Lorem ipsum etc.",
+            "file": "assets/infos/whats_breast.html",
+            "links": [
+                {"display": "Google",
+                "url": "www.google.com"}
+            ]
+        },
+        {
+            "name": "Mögliche Symptome",
+            "text": "Lorem ipsum etc.",
+            "file": "assets/infos/symptoms_breast.html"
+        },
+        {
+            "name": "Risikofaktoren",
+            "text": "Lorem ipsum etc.",
+            "file": "assets/infos/risks_breast.html"
+        },
+        {
+            "name": "Wann und warum ist eine Vorsorge unter Berücksichtigung persönlichen Risikos sinnvoll?",
+            "text": "Lorem ipsum etc.",
+            "file": "assets/infos/prevent_breast.html"
+        }
+    ]
+}

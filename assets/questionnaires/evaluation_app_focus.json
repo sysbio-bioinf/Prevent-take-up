@@ -1,0 +1,554 @@
+{
+    "name": "Fragebogen zur Anwenderfreundlichkeit der App",
+    "instructions": "Vielen Dank für Ihre Teilnahme an der Bewertung der „Prevent-Take-Up“ App. Es werden dabei keine persönlichen Daten übermittelt.",
+    "questions": [{
+            "questionType": "SingleChoice",
+            "questionID": "id.age",
+            "text": "Wie alt sind Sie?",
+            "answers": [{
+                    "text": "30 Jahre oder jünger",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.sex",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "zwischen 30 und 50 Jahren",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.sex",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "zwischen 50 und 70 Jahren",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.sex",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.sex",
+            "questionType": "SingleChoice",
+            "text": "Welches Geschlecht haben Sie?",
+            "answers": [{
+                    "text": "männlich",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.use",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "weiblich",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.use",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "divers",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.use",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.use",
+            "questionType": "SingleChoice",
+            "text": "Ich denke, ich würde die Website/ App regelmäßig nutzen. (0 lehne völlig ab, 4 stimme völlig zu)",
+            "answers": [{
+                "text": "0 (lehne völlig ab)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.complicated",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "1",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.complicated",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "2",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.complicated",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "3",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.complicated",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "4 (stimme völlig zu)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.complicated",
+                    "jumpRule": "true"
+                }]
+            }
+        ]
+        },
+        {
+            "questionID": "id.complicated",
+            "questionType": "SingleChoice",
+            "text": "Die Website/ App erscheint mir unnötig kompliziert. (0 lehne völlig ab, 4 stimme völlig zu)",
+            "answers": [{
+                "text": "0 (lehne völlig ab)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.easy",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "1",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.easy",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "2",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.easy",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "3",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.easy",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "4 (stimme völlig zu)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.easy",
+                    "jumpRule": "true"
+                }]
+            }
+        ]
+        },
+        {
+            "questionID": "id.easy",
+            "questionType": "SingleChoice",
+            "text": "Ich finde, die Website/ App ist einfach zu benutzen. (0 lehne völlig ab, 4 stimme völlig zu)",
+            "answers": [{
+                "text": "0 (lehne völlig ab)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.help",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "1",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.help",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "2",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.help",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "3",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.help",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "4 (stimme völlig zu)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.help",
+                    "jumpRule": "true"
+                }]
+            }
+        ]
+        },
+        {
+            "questionID": "id.help",
+            "questionType": "SingleChoice",
+            "text": "Ich denke, ich bräuchte technische Unterstützung um die Website/ App nutzen zu können. (0 lehne völlig ab, 4 stimme völlig zu)",
+            "answers": [{
+                "text": "0 (lehne völlig ab)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.integrated",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "1",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.integrated",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "2",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.integrated",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "3",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.integrated",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "4 (stimme völlig zu)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.integrated",
+                    "jumpRule": "true"
+                }]
+            }
+        ]
+        },
+        {
+            "questionID": "id.integrated",
+            "questionType": "SingleChoice",
+            "text": "Ich finde, dass die verschiedenen Funktionen der Website/ App gut integriert sind. (0 lehne völlig ab, 4 stimme völlig zu)",
+            "answers": [{
+                "text": "0 (lehne völlig ab)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.unity",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "1",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.unity",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "2",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.unity",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "3",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.unity",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "4 (stimme völlig zu)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.unity",
+                    "jumpRule": "true"
+                }]
+            }
+        ]
+        },
+        {
+            "questionID": "id.unity",
+            "questionType": "SingleChoice",
+            "text": "Die Website/ App erscheint mir zu uneinheitlich. (0 lehne völlig ab, 4 stimme völlig zu)",
+            "answers": [{
+                "text": "0 (lehne völlig ab)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.learnable",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "1",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.learnable",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "2",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.learnable",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "3",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.learnable",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "4 (stimme völlig zu)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.learnable",
+                    "jumpRule": "true"
+                }]
+            }
+        ]
+        },
+        {
+            "questionID": "id.learnable",
+            "questionType": "SingleChoice",
+            "text": "Ich glaube, dass die meisten Leute die Benutzung der Website/ App schnell erlernen können. (0 lehne völlig ab, 4 stimme völlig zu)",
+            "answers": [{
+                "text": "0 (lehne völlig ab)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.laborious",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "1",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.laborious",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "2",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.laborious",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "3",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.laborious",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "4 (stimme völlig zu)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.laborious",
+                    "jumpRule": "true"
+                }]
+            }
+        ]
+        },
+        {
+            "questionID": "id.laborious",
+            "questionType": "SingleChoice",
+            "text": "Die Website/ App erscheint mir sehr umständlich zu benutzen. (0 lehne völlig ab, 4 stimme völlig zu)",
+            "answers": [{
+                "text": "0 (lehne völlig ab)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.secure",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "1",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.secure",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "2",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.secure",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "3",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.secure",
+                    "jumpRule": "true"
+                }]
+            },
+            {
+                "text": "4 (stimme völlig zu)",
+                "score": 1,
+                "jumpRules": [{
+                    "jumpID": "id.secure",
+                    "jumpRule": "true"
+                }]
+            }
+        ]
+        },
+        {
+            "questionID": "id.secure",
+            "questionType": "SingleChoice",
+            "text": "Ich fühle mich bei der Benutzung der Website/ App sehr sicher. (0 lehne völlig ab, 4 stimme völlig zu)",
+            "answers": [{
+                    "text": "0 (lehne völlig ab)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.needLearn",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "1",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.needLearn",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "2",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.needLearn",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "3",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.needLearn",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "4 (stimme völlig zu)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.needLearn",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.needLearn",
+            "questionType": "SingleChoice",
+            "text": "Ich musste einiges lernen, um mit der Website/ App zurecht zu kommen. (0 lehne völlig ab, 4 stimme völlig zu)",
+            "answers": [{
+                    "text": "0 (lehne völlig ab)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.end",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "1",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.end",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "2",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.end",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "3",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.end",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "4 (stimme völlig zu)",
+                    "score": 1,
+                    "jumpRules": [{
+                        "jumpID": "id.end",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        }
+    ],
+    "interpretations": [{
+            "score": 31,
+            "text": "Extremely satisfied"
+        },
+        {
+            "score": 26,
+            "text": "Satisfied"
+        },
+        {
+            "score": 21,
+            "text": "Slightly satisfied"
+        },
+        {
+            "score": 20,
+            "text": "Neutral"
+        },
+        {
+            "score": 15,
+            "text": "Slightly dissatisfied"
+        },
+        {
+            "score": 10,
+            "text": "Dissatisfied"
+        },
+        {
+            "score": 5,
+            "text": "Extremely dissatisfied"
+        }
+    ]
+}

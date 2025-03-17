@@ -1,0 +1,5 @@
+const BACKEND_URL = "ADD BACKEND URL HERE";
+const BACKEND_URL_DEVEL = "localhost:3000/api/eval";
+const BACKEND_URL_POSTMAN = "ADD POSTMAN URL FOR TESTING HERE";
+
+const EVAL_MODE = true;

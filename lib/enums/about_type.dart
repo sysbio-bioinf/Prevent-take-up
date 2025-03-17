@@ -1,0 +1,1 @@
+enum AboutType { disclaimer, appVersion }

@@ -1,0 +1,1112 @@
+{
+    "name": "Welches persönliche Risiko habe ich?",
+    "instructions": "Für eine möglichst genaue Vorhersage ist eine präzise und wahrheitsgemäße Angabe der Informationen notwendig. Es werden dabei keine persönlichen Daten übermittelt.",
+    "questions": [{
+        "questionType": "ImageChoice",
+        "image": "images/hinten.jpg",
+        "questionID": "id.age",
+        "text": "Wie alt sind Sie?",
+        "answers": [{
+            "text": "Alter",
+            "minValue": 18,
+            "maxValue": 99,
+            "jumpRules": [{
+                "jumpID": "id.sex",
+                "jumpRule": "true"
+            }]
+        }]
+    },{
+            "questionType": "NumberInput",
+            "questionID": "id.age",
+            "text": "Wie alt sind Sie?",
+            "answers": [{
+                "text": "Alter",
+                "minValue": 18,
+                "maxValue": 99,
+                "jumpRules": [{
+                    "jumpID": "id.sex",
+                    "jumpRule": "true"
+                }]
+            }]
+        },
+        {
+            "questionID": "id.sex",
+            "questionType": "SingleChoice",
+            "text": "Welches Geschlecht haben Sie?",
+            "answers": [{
+                    "text": "Männlich",
+                    "jumpRules": [{
+                        "jumpID": "id.prevTumor",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Weiblich",
+                    "jumpRules": [{
+                        "jumpID": "id.prevTumor",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.prevTumor",
+            "questionType": "SingleChoice",
+            "text": "Hatten Sie schon einmal eine bösartige Krebserkrankung?",
+            "answers": [{
+                    "text": "Ja",
+                    "jumpRules": [{
+                        "jumpID": "id.weight",
+                        "score": [0],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Nein",
+                    "jumpRules": [{
+                        "jumpID": "id.preventionMale",
+                        "jumpRule": "id.sex == 0"
+                    },
+                    {
+                        "jumpID": "id.preventionFemale",
+                        "jumpRule": "id.sex == 1"
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "questionID": "id.preventionMale",
+            "questionType": "MultipleChoice",
+            "text": "An welchen Vorsorgeuntersuchungen haben Sie bereits teilgenommen?",
+            "answers": [{
+                    "text": "Darmspiegelung (Koloskopie)",
+                    "jumpRules": [{
+                        "jumpID": "id.family",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Untersuchung der Prostata",
+                    "jumpRules": [{
+                        "jumpID": "id.family",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Keine der genannten Vorsorgemaßnahmen",
+                    "clearFlag": true,
+                    "jumpRules": [{
+                        "jumpID": "id.family",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.preventionFemale",
+            "questionType": "MultipleChoice",
+            "text": "An welchen Vorsorgeuntersuchungen haben Sie bereits teilgenommen?",
+            "answers": [{
+                    "text": "Darmspiegelung (Koloskopie)",
+                    "jumpRules": [{
+                        "jumpID": "id.family",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Abtastuntersuchung der Brust",
+                    "jumpRules": [{
+                        "jumpID": "id.family",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Mammographie",
+                    "jumpRules": [{
+                        "jumpID": "id.family",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Keine der genannten Vorsorgemaßnahmen",
+                    "clearFlag": true,
+                    "jumpRules": [{
+                        "jumpID": "id.family",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.family",
+            "questionType": "SingleChoice",
+            "text": "Sind in Ihrer direkten Verwandtschaft (Vater, Mutter, Geschwister) Krebserkrankungen aufgetreten?",
+            "answers": [{
+                    "text": "Ja",
+                    "jumpRules": [{
+                        "jumpID": "id.familyType",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Nein",
+                    "jumpRules": [{
+                        "jumpID": "id.feacesTest",
+                        "jumpRule": "id.age > 45 && id.sex == 0"
+                    },
+                    {
+                        "jumpID": "id.feacesTest",
+                        "jumpRule": "id.age > 50 && id.sex == 1"
+                    },
+                {"jumpID" : "id.familyPolyps",
+                "jumpRule": "true"}]
+                },
+                {
+                    "text": "Weiß ich nicht",
+                    "jumpRules": [{
+                        "jumpID": "id.feacesTest",
+                        "jumpRule": "id.age > 45 && id.sex == 0"
+                    },
+                    {
+                        "jumpID": "id.feacesTest",
+                        "jumpRule": "id.age > 50 && id.sex == 1"
+                    },
+                {"jumpID" : "id.familyPolyps",
+                "jumpRule": "true"}]
+                }
+            ]
+        },
+        {
+            "questionID": "id.familyType",
+            "questionType": "MultipleChoice",
+            "text": "Welche Krebserkrankungen sind in Ihrer direkten Verwandschaft aufgetreten? ",
+            "answers": [{
+                    "text": "Darmkrebs",
+                    "jumpRules": [{
+                        "jumpID": "id.familyAge",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Prostatakrebs",
+                    "jumpRules": [{
+                        "jumpID": "id.familyAge",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Mammakarzinom",
+                    "jumpRules": [{
+                        "jumpID": "id.familyAge",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "eine andere Form von Krebserkrankung",
+                    "jumpRules": [{
+                        "jumpID": "id.feacesTest",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.familyAge",
+            "questionType": "NumberInput",
+            "text": "In welchem Alter ist bei den Verwandten die Krebserkrankung erstmalig aufgetreten? (bei mehreren Erkrankungen, das jüngste Alter)",
+            "maxValue": 99,
+            "minValue": 2,
+            "answers": [{
+                    "text": "Alter",
+                    "jumpRules": [{
+                        "jumpID": "id.prostate",
+                        "score": [23],
+                        "jumpRule": "id.familyAge < 60 && id.familyType == 0 && id.sex == 0  && id.preventionMale == 1"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [23],
+                        "jumpRule": "id.familyAge < 60 && id.familyType == 0 && id.sex == 0"
+                    },
+                    {
+                        "jumpID": "id.breastKnots",
+                        "score": [23],
+                        "jumpRule": "id.familyAge < 60 && id.familyType == 0 && id.sex == 1"
+                    },
+                    {
+                        "jumpID": "id.feacesTest",
+                        "jumpRule": "id.age > 45 && id.sex == 0"
+                    },
+                    {
+                        "jumpID": "id.feacesTest",
+                        "jumpRule": "id.age > 50 && id.sex == 1"
+                    },
+                    {
+                        "jumpID": "id.feacesTest",
+                        "jumpRule": "id.familyType == 1 || id.familyType == 2 || id.familyType == 3"
+                    },
+                    {
+                        "jumpID": "id.familyPolyps",
+                        "jumpRule": "true"
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "questionID": "id.feacesTest",
+            "questionType": "SingleChoice",
+            "text": "Haben Sie schon einmal einen Test auf \"Blut im Stuhl\" gemacht (Hämoccult®, iFOPT)?",
+            "answers": [{
+                    "text": "Ja",
+                    "jumpRules": [{
+                        "jumpID": "id.feacesDate",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Nein",
+                    "jumpRules": [{
+                        "jumpID": "id.coloscopy",
+                        "jumpRule": "id.preventionMale == 0 || id.preventionFemale == 0"
+                    },
+                    {
+                        "jumpID": "id.familyPolyps",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.feacesResult",
+            "questionType": "SingleChoice",
+            "text": "War dieser Stuhltest positiv auf Blut im Stuhl?",
+            "answers": [{
+                    "text": "Ja",
+                    "jumpRules": [{
+                        "jumpID": "id.prostate",
+                        "score": [26],
+                        "jumpRule": "id.sex == 0  && id.preventionMale == 1"
+                    },
+                    {
+                        "jumpID": "id.breastKnots",
+                        "score": [1],
+                        "jumpRule": "id.sex == 1"
+                    }]
+                },
+                {
+                    "text": "Nein",
+                    "jumpRules": [{
+                        "jumpID": "id.feacesDate",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.feacesDate",
+            "questionType": "SingleChoice",
+            "text": "Wann wurde die Untersuchung auf \"Blut im Stuhl\" gemacht?",
+            "answers": [{
+                    "text": "Vor zwei Jahren oder mehr",
+                    "jumpRules": [{
+                        "jumpID": "id.breastKnots",
+                        "score": [2],
+                        "jumpRule": "id.sex == 1 && id.age > 50"
+                    },
+                    {
+                        "jumpID": "id.prostate",
+                        "score": [1],
+                        "jumpRule": "id.sex == 0 && id.age > 50  && id.preventionMale == 1"
+                    },
+                    {
+                        "jumpID": "id.prostate",
+                        "score": [1,21],
+                        "jumpRule": "id.sex == 0 && id.age > 40"
+                    },
+                    {
+                        "jumpID": "id.coloscopy",
+                        "score": [1],
+                        "jumpRule": "id.preventionMale == 0 || id.preventionFemale == 0"
+                    },
+                    {
+                        "jumpID": "id.familyPolyps",
+                        "jumpRule": "true"
+                    }
+                    ]
+                },
+                {
+                    "text": "Vor weniger als zwei Jahren",
+                    "jumpRules": [{
+                        "jumpID": "id.coloscopy",
+                        "jumpRule": "id.preventionMale == 0 || id.preventionFemale == 0"
+                    },
+                    {
+                        "jumpID": "id.familyPolyps",
+                        "jumpRule": "true"
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "questionID": "id.coloscopy",
+            "questionType": "SingleChoice",
+            "text": "Waren Sie in den letzen 5 Jahren bei einer Darmspiegelung (Koloskopie)?",
+            "answers": [{
+                    "text": "Ja",
+                    "jumpRules": [{
+                        "jumpID": "id.breastKnots",
+                        "score": [27],
+                        "jumpRule": "id.sex == 1 && id.age > 50"
+                    },
+                    {
+                        "jumpID": "id.prostate",
+                        "score" : [27],
+                        "jumpRule": "id.sex == 0 && id.age > 45  && id.preventionMale == 1"
+                    },
+                    {
+                        "jumpID": "id.familyPolyps",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Nein",
+                    "jumpRules": [{
+                        "jumpID": "id.breastKnots",
+                        "score" : [1],
+                        "jumpRule": "id.sex == 1 && id.age > 50"
+                    },
+                    {
+                        "jumpID": "id.prostate",
+                        "score" : [1],
+                        "jumpRule": "id.sex == 0 && id.age > 45  && id.preventionMale == 1"
+                    },
+                    {
+                        "jumpID": "id.familyPolyps",
+                        "jumpRule": "true"
+                    }
+                    ]
+                }
+            ]
+        },
+        {
+            "questionID": "id.familyPolyps",
+            "questionType": "SingleChoice",
+            "text": "Wurde bei einem Ihrer Verwandten (Vater, Mutter, Geschwister) bei einer Darmspiegelung mehr als 1 Polyp (Gewebewucherung) oder Adenom (Geschwulst) entfernt?",
+            "answers": [{
+                    "text": "Ja",
+                    "jumpRules": [{
+                        "jumpID": "id.breastKnots",
+                        "score": [23],
+                        "jumpRule": "id.sex == 1"
+                    },
+                    {
+                        "jumpID": "id.prostate",
+                        "score": [23],
+                        "jumpRule": "id.sex == 0  && id.preventionMale == 1"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [23,21],
+                        "jumpRule": "id.sex == 0 && id.age >= 40"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [23],
+                        "jumpRule": "id.sex == 0 && id.age < 40"
+                    }]
+                },
+                {
+                    "text": "Nein",
+                    "jumpRules": [{
+                        "jumpID": "id.prostate",
+                        "jumpRule": "id.sex == 0 && id.preventionMale == 1"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [21],
+                        "jumpRule": "id.sex == 0 && id.age >= 40"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [7],
+                        "jumpRule": "id.sex == 0 && id.age < 40"
+                    },
+                    {
+                        "jumpID": "id.breastKnots",
+                        "jumpRule": "id.sex == 1"
+                    }]
+                },
+                {
+                    "text": "Weiß ich nicht",
+                    "jumpRules": [{
+                        "jumpID": "id.prostate",
+                        "jumpRule": "id.sex == 0 && id.preventionMale == 1"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [21],
+                        "jumpRule": "id.sex == 0 && id.age >= 40"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [7],
+                        "jumpRule": "id.sex == 0 && id.age < 40"
+                    },
+                    {
+                        "jumpID": "id.breastKnots",
+                        "jumpRule": "id.sex == 1"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.breastKnots",
+            "questionType": "SingleChoice",
+            "text": "Haben Sie Knoten in Ihrer Brust entdeckt?",
+            "answers": [{
+                    "text": "Ja",
+                    "jumpRules": [{
+                        "jumpID": "id.weight",
+                        "score": [4],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Nein",
+                    "jumpRules": [{
+                        "jumpID": "id.femaleIntervention",
+                        "jumpRule": "id.preventionFemale == 1 || id.preventionFemale == 2 || id.preventionFemale == 3 || id.preventionFemale == 4"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [22],
+                        "jumpRule": "id.age >= 30"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [24],
+                        "jumpRule": "id.age >= 18 && id.age <= 29"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.femaleIntervention",
+            "questionType": "NumberInput",
+            "text": "Vor wie vielen Jahren war Ihre letzte Vorsorgeuntersuchung bei Ihrer Frauenärztin / Ihrem Frauenarzt?",
+            "answers": [{
+                    "text": "Jahre",
+                    "jumpRules": [{
+                        "jumpID": "id.weight",
+                        "score": [2],
+                        "jumpRule": "id.femaleIntervention > 1"
+                    },{
+                        "jumpID": "id.mammography",
+                        "jumpRule": "id.preventionFemale == 4 || (id.age >= 50 && id.age <= 69)"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [3],
+                        "jumpRule": "id.age >= 30"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [25],
+                        "jumpRule": "id.age < 30"
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "questionID": "id.mammography",
+            "questionType": "NumberInput2",
+            "text": "Vor wie vielen Jahren war Ihre letzte Mammographie Untersuchung? (Wenn innerhalb der letzten 12 Monate, dann bitte 0 eingebens)",
+            "minValue": 0,
+            "maxValue" : 50,
+            "answers": [{
+                    "text": "Jahre",
+                    "jumpRules": [{
+                        "jumpID": "id.weight",
+                        "score": [8],
+                        "jumpRule": "id.mammography > 2 && (id.age >= 50 && id.age <= 69)"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [3],
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.prostate",
+            "questionType": "MultipleChoice",
+            "text": "Welche Früherkennung zur Prostatakrebs-Vorsorge wurde bei Ihnen durchgeführt?",
+            "answers": [{
+                    "text": "Tastuntersuchung",
+                    "jumpRules": [{
+                        "jumpID": "id.suspicious",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Ultraschalluntersuchung",
+                    "jumpRules": [{
+                        "jumpID": "id.suspicious",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "MRT-Untersuchung",
+                    "jumpRules": [{
+                        "jumpID": "id.suspicious",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Messung des PSA-Wertes",
+                    "jumpRules": [{
+                        "jumpID": "id.suspicious",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Keine der Genannten",
+                    "clearFlag": true,
+                    "jumpRules": [{
+                        "jumpID": "id.suspicious",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.suspicious",
+            "questionType": "SingleChoice",
+            "text": "War die Früherkennung bei Ihnen krebsverdächtig?",
+            "answers": [{
+                    "text": "Ja",
+                    "jumpRules": [{
+                        "jumpID": "id.weight",
+                        "score": [5],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Nein",
+                    "jumpRules": [{
+                        "jumpID": "id.psaValue",
+                        "jumpRule": "id.prostate == 3"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score" : [9],
+                        "jumpRule": "true"
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "questionID": "id.psaValue",
+            "questionType": "NumberInput",
+            "text": "Wie hoch war der PSA-Wert? (Angabe in ng/ml. 0, falls Sie die Antwort nicht wissen)",
+            "answers": [{
+                    "text": "0",
+                    "jumpRules": [{
+                        "jumpID": "id.weight",
+                        "score": [5],
+                        "jumpRule": "id.psaValue == 0"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [20],
+                        "jumpRule": "id.psaValue >= 1 && id.age > 70"
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [19],
+                        "jumpRule": "id.psaValue < 1 && id.age > 70"
+                    },
+                    {
+                        "jumpID": "id.psaDateWeeks",
+                        "jumpRule": "id.psaValue >= 4"
+                    },
+                    {
+                        "jumpID": "id.psaDateMonths",
+                        "jumpRule": "id.psaValue >= 2 && id.psaValue < 4"
+                    },
+                    {
+                        "jumpID": "id.psaDateYears",
+                        "jumpRule": "id.psaValue < 2 && id.psaValue >= 1"
+                    },
+                    {
+                        "jumpID": "id.psaDateYears",
+                        "jumpRule": "id.psaValue < 1"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.psaDateYears",
+            "questionType": "NumberInput2",
+            "text": "Vor wie vielen Jahren fand ihre letzte Früherkennung mit Bestimmung des PSA-Wertes statt? (0, falls Sie es nicht wissen)",
+            "answers": [{
+                    "text": "0",
+                    "jumpRules": [{
+                        "jumpID": "id.weight",
+                        "score": [13],
+                        "jumpRule": "id.psaValue < 1 && id.psaDateYears >= 4" 
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [14],
+                        "jumpRule": "id.psaValue < 1 && id.psaDateYears < 4" 
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [10],
+                        "jumpRule": "id.psaValue >= 1 && id.psaValue < 2 && id.psaDateYears < 2" 
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [15],
+                        "jumpRule": "id.psaValue >= 1 && id.psaValue < 2 && id.psaDateYears >= 2" 
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [18],
+                        "jumpRule": "id.psaDateYears == 0" 
+                    }
+                ]
+                }
+            ]
+        },
+        {
+            "questionID": "id.psaDateMonths",
+            "questionType": "NumberInput2",
+            "text": "Vor wie vielen Monaten fand Ihre letzte Früherkennung mit Bestimmung des PSA-Wertes statt? (0, wenn Sie es nicht wissen)",
+            "answers": [{
+                    "text": "0",
+                    "jumpRules": [{
+                        "jumpID": "id.weight",
+                        "score": [16],
+                        "jumpRule": "id.psaValue >= 2 && id.psaValue < 4 && id.psaDateMonths < 12" 
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [12],
+                        "jumpRule": "id.psaValue >= 2 && id.psaValue < 4 && id.psaDateMonths >= 12" 
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [18],
+                        "jumpRule": "id.psaDateMonths == 0" 
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.psaDateWeeks",
+            "questionType": "NumberInput2",
+            "text": "Vor wie vielen Wochen fand ihre letzte Früherkennung mit Bestimmung des PSA-Wertes statt? (0, wenn Sie es nicht wissen)",
+            "answers": [{
+                    "text": "0",
+                    "jumpRules": [{
+                        "jumpID": "id.weight",
+                        "score": [17],
+                        "jumpRule": "id.psaValue >= 4 && id.psaDateWeeks >= 6" 
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [11],
+                        "jumpRule": "id.psaValue >= 4 && id.psaDateWeeks < 6" 
+                    },
+                    {
+                        "jumpID": "id.weight",
+                        "score": [18],
+                        "jumpRule": "id.psaDateWeeks == 0" 
+                    }]
+                }
+            ]
+        },
+        {
+            "questionType": "NumberInput",
+            "questionID": "id.weight",
+            "isOptional": true,
+            "jumpSkipped": "id.meat",
+            "text": "Welches Körpergewicht haben Sie (in kg)?",
+            "answers": [{
+                    "text": "in Kg",
+                    "jumpRules": [{
+                        "jumpID": "id.size",
+                        "jumpRule": "true"
+                    }]
+                }]
+        },
+        {
+            "questionType": "NumberInput2",
+            "questionID": "id.size",
+            "isOptional": true,
+            "jumpSkipped": "id.meat",
+            "text": "Welche Körpergröße haben Sie (in cm)?",
+            "answers": [{
+                    "text": "in cm",
+                    "jumpRules": [{
+                        "jumpID": "id.meat",
+                        "score" : [101],
+                        "jumpRule": "(id.weight / ((id.size / 100) * (id.size / 100))) > 25"
+                    },
+                    {
+                        "jumpID": "id.meat",
+                        "score" : [102],
+                        "jumpRule": "((id.weight / ((id.size / 100) * (id.size / 100))) < 18.5) && id.sex == 1"
+                    },
+                    {
+                        "jumpID": "id.meat",
+                        "jumpRule": "true"
+                    }]
+                }]
+        },
+        {
+            "questionID": "id.meat",
+            "questionType": "SingleChoice",
+            "isOptional": true,
+            "jumpSkipped": "id.activity",
+            "text": "Essen Sie mehrmals pro Woche rotes Fleisch?",
+            "answers": [{
+                    "text": "ja",
+                    "jumpRules": [{
+                        "jumpID": "id.activity",
+                        "score": [103],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "nein",
+                    "jumpRules": [{
+                        "jumpID": "id.activity",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.activity",
+            "questionType": "SingleChoice",
+            "isOptional": true,
+            "jumpSkipped": "id.smoking",
+            "text": "Bitte schätzen Sie Ihren Energieverbrauch pro Woche ein (siehe Infos) und wählen dann die für Sie passende Antwort aus?",
+            "answers": [{
+                    "text": "Hoch z.B. > 10 Min. tägliches Treppensteigen oder > 30 Min. tägliches Radfahren",
+                    "jumpRules": [{
+                        "jumpID": "id.smoking",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Gering (MET < 3000 pro Woche)",
+                    
+                    "jumpRules": [{
+                        "jumpID": "id.smoking",
+                        "score": [104],
+                        "jumpRule": "true"
+                    }]
+                }
+            ],
+            "infoText": "Ihre körperliche Aktivität kann als metabolisches Äquivalent (MET) bestimmt werden. Bitte schätzen Sie anhand der Tabelle unter nachfolgendem Link Ihren Energieverbrauch pro Woche ein und wählen dann die für Sie passende Antwort aus.",
+            "infoURLs": [{"text": "Herz Bewegt", "url": "https://herzbewegt.org/was-steckt-hinter-dem-metabolischen-aequivalent/"}]
+        },
+        {
+            "questionID": "id.smoking",
+            "questionType": "SingleChoice",
+            "isOptional": true,
+            "jumpSkipped": "id.alcohol",
+            "text": "Rauchen Sie?",
+            "answers": [{
+                    "text": "Ja",
+                    
+                    "jumpRules": [{
+                        "jumpID": "id.alcohol",
+                        "score": [105],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Nein",
+                    "jumpRules": [{
+                        "jumpID": "id.alcohol",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.alcohol",
+            "questionType": "SingleChoice",
+            "isOptional": true,
+            "jumpSkipped": "id.diabetes",
+            "text": "Trinken Sie Wein/Bier/Sekt/andere Spirituosen, wie Schnaps?",
+            "answers": [{
+                    "text": "Nein oder selten",
+                    
+                    "jumpRules": [{
+                        "jumpID": "id.diabetes",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Ja",
+                    "jumpRules": [{
+                        "jumpID": "id.alcoholMassFemale",
+                        "jumpRule": "id.sex == 1"
+                    },
+                    {
+                        "jumpID": "id.alcoholMassMale",
+                        "jumpRule": "id.sex == 0"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.alcoholMassFemale",
+            "questionType": "SingleChoice",
+            "isOptional": true,
+            "jumpSkipped": "id.diabetes",
+            "text": "Wie oft trinken Sie pro Tag bis zu 1 Glas Wein (125 ml) oder Bier (300 ml) oder 2 Gläser Spirituosen (40 ml)?",
+            "answers": [{
+                    "text": "an 1 bis 5 Tagen pro Woche",
+                    
+                    "jumpRules": [{
+                        "jumpID": "id.diabetes",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "an 6 oder 7 Tagen pro Woche",
+                    "jumpRules": [{
+                        "jumpID": "id.diabetes",
+                        "score": [106],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "pro Tag mehr als 1 Glas Wein (125 ml) oder Bier (300 ml) oder 2 Gläser Spirituosen (40 ml), mehrmals pro Woche",
+                    "jumpRules": [{
+                        "jumpID": "id.diabetes",
+                        "score": [106],
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.alcoholMassMale",
+            "questionType": "SingleChoice",
+            "isOptional": true,
+            "jumpSkipped": "id.diabetes",
+            "text": "Wie oft trinken Sie pro Tag bis zu 2 Gläser Wein (250 ml) oder 2 Gläser Bier (600 ml) oder 4 Gläser Spirituosen (80 ml)?",
+            "answers": [{
+                    "text": "an 1 bis 5 Tagen pro Woche",
+                    
+                    "jumpRules": [{
+                        "jumpID": "id.diabetes",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "an 6 oder 7 Tagen pro Woche",
+                    "jumpRules": [{
+                        "jumpID": "id.diabetes",
+                        "score": [106],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "pro Tag mehr als 2 Gläser Wein (250 ml) oder 2 Gläser Bier (600 ml) oder 4 Gläser Spirituosen (80 ml), mehrmals pro Woche",
+                    "jumpRules": [{
+                        "jumpID": "id.diabetes",
+                        "score": [106],
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.diabetes",
+            "questionType": "SingleChoice",
+            "isOptional": true,
+            "jumpSkipped": "id.end",
+            "text": "Liegt bei Ihnen Diabetes mellitus Typ II vor?",
+            "answers": [{
+                    "text": "Ja",
+                    "jumpRules": [{
+                        "jumpID": "id.end",
+                        "score": [107],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Nein",
+                    "jumpRules": [{
+                        "jumpID": "id.end",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Weiß nicht",
+                    "jumpRules": [{
+                        "jumpID": "id.end",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        }
+    ],
+    "interpretations": [{
+        "score": 0,
+        "text": "Da die „Prevent-Take-Up“-App eine Anwendung zur Information zu Vorsorgeleistungen bei bisher nicht betroffenen Personen ist, können Patient:innen, die bereits eine bösartige Krebserkrankung hatten, leider nicht beraten werden. Sie benötigen in diesem Fall eine auf Ihre Erkrankung individualisierte Vorsorge durch Ihren betreuenden Arzt/ Ihre betreuende Ärztin."
+    },
+    {
+        "score": 1,
+        "text": "Auf Basis Ihrer Antworten empfehlen wir Ihnen sich bezüglich Darmkrebsvorsorge bei Ihrem betreuenden Arzt/ Ihrer betreuenden Ärztin zu erkundigen."
+    },
+    {
+        "score": 2,
+        "text": "Ihre letzte Vorsorgeuntersuchung liegt mehr als ein Jahr zurück. Wir empfehlen Ihnen, einen Termin für die jährliche Vorsorge bei Ihrem betreuenden Frauenarzt/ Ihrer betreuenden Frauenärztin zu vereinbaren."
+    },
+    {
+        "score": 3,
+        "text": "Ihre Vorsorgeuntersuchung ist aktuell. Bitte denken Sie weiterhin an die jährliche Brustkrebsvorsorge bei Ihrem betreuenden Frauenarzt/ Ihrer betreuenden Frauenärztin und regelmäßige Selbstuntersuchung der Brust."
+    },
+    { 
+        "score": 4,
+        "text": "Wenn Sie bei der Selbstuntersuchung neu aufgetretene Knoten in Ihrer Brust entdeckt haben, empfiehlt sich die zeitnahe Vorstellung bei Ihrem betreuenden Frauenarzt/ Ihrer betreuenden Frauenärztin. Bitte vereinbaren Sie zeitnah einen Termin bei Ihrem betreuenden Frauenarzt/ Ihrer betreuenden Frauenärztin zu einer weiteren Abklärung."
+    },
+    {
+        "score": 5,
+        "text": "Lassen Sie sich über weitere notwendige Maßnahmen von Ihrem betreuenden Urologen/ Ihrer betreuenden Urologin oder Hausarzt/ Hausärztin beraten."
+    },
+    {
+        "score": 6,
+        "text": "Führen Sie die nächste Kontrolluntersuchung bei Ihrem Urologen/ Ihrer Urologin zeitnah durch."
+    },
+    {
+        "score": 7,
+        "text": "Aufgrund Ihrer Antworten ist kein erhöhtes Risiko für eine Krebserkrankung feststellbar. Informieren Sie sich trotzdem regelmäßig zu Vorsorgemöglichkeiten bei Ihrem Hausarzt/ Ihrer Hausärztin und denken Sie an regelmäßige Vorsorge."
+    },
+    {
+        "score": 8,
+        "text": "Ihre letzte Mammographie war vor mehr als 2 Jahren, bitte melden Sie sich bei Ihrem Frauenarzt/ Ihrer Frauenärztin, um diese zu planen."
+    },
+    {
+        "score": 9,
+        "text": "In Ihrer Tast-/Ultraschalluntersuchung kam es zu keinem auffälligen Ergebnis. Bei Ihnen wurde der PSA-Wert nicht bestimmt, sodass aktuell nicht eingeschätzt werden kann, wie hoch Ihr Risiko ist, an Prostatakrebs zu leiden. Lassen Sie sich deshalb von Ihrem Urologen/ Ihrer Urologin oder Hausarzt/Hausärztin zu einer PSA-Wert-Messung beraten."
+    },
+    { 
+        "score": 10,
+        "text": "Ihr PSA-Wert war leicht erhöht. Es bestand deswegen kein hochgradiger Verdacht auf das Vorliegen von Krebs. Ihre nächste Untersuchung sollte deswegen 2 Jahre nach der letzten stattfinden."
+    },
+    { 
+        "score": 11,
+        "text": "Ihr PSA-Wert ist auffällig erhöht. Das kann an unterschiedlichen Ursachen liegen: z.B. Entzündung, Dammbelastende Tätigkeiten wie Fahrradfahren. Es kann aber auch Krebs vorliegen. Deswegen sollten Sie die nächste Untersuchung zur Bestätigung innerhalb von 6 Wochen nach der letzten Untersuchung durchführen."
+    },
+    {
+        "score" : 12,
+        "text": "Ihr PSA-Wert war moderat erhöht. Aus diesem Grund kann das Vorliegen eines Prostatakrebs nicht ausgeschlossen werden. Da Ihre letzte Untersuchung mehr als 1 Jahr zurückliegt, sollten Sie zeitnah zur Kontrolluntersuchung gehen."
+    },
+    {
+        "score": 13,
+        "text": "Ihr PSA-Wert war sehr niedrig. Es bestand deswegen kein Verdacht auf das Vorliegen von Krebs. Da Ihre letzte Kontrolluntersuchung vor mehr als 4 Jahren stattfand, sollten Sie zu einer erneuten Kontrolle gehen."
+    },
+    {
+        "score": 14,
+        "text": "Ihr PSA-Wert ist sehr niedrig. Es besteht kein Verdacht auf das Vorliegen von Krebs. Ihre nächste Kontrolluntersuchung sollte deshalb ca. 4 Jahre nach der letzten Untersuchung stattfinden."
+    },
+    {
+        "score": 15,
+        "text": "Ihr PSA-Wert war leicht erhöht. Es bestand deswegen kein hochgradiger Verdacht auf das Vorliegen von Krebs. Da Ihre letzte Untersuchung aber vor mehr als 2 Jahren stattfand, sollten Sie demnächst eine Kontrolluntersuchung durchführen."
+    },
+    {
+        "score": 16,
+        "text": "Ihr PSA-Wert war moderat erhöht. Aus diesem Grund sollte eine Kontrolluntersuchung zum Ausschluss einer Krebserkrankung ca. 1 Jahr nach der letzten Untersuchung stattfinden."
+    },
+    {
+        "score": 17,
+        "text": "Ihr PSA-Wert ist auffällig erhöht. Das kann an unterschiedlichen Ursachen liegen: z.B. Entzündung, Dammbelastende Tätigkeiten wie Fahrradfahren. Es kann aber auch Krebs vorliegen. Deswegen sollten Sie die nächste Untersuchung zur Bestätigung zeitnah durchführen."
+    },
+    {
+        "score": 18,
+        "text": "Der PSA-Wert ist in der Beurteilung des individuellen Prostatakrebsrisikos wichtig. Da die Höhe des Wertes maßgeblichen Einfluss auf die Risikoberechnung hat, kann Ihnen keine leitliniengerechte Empfehlung gegeben werden. Lassen Sie sich deswegen von Ihrem Urologen/ Ihrer Urologin oder Hausarzt/Hausärztin beraten."
+    },
+    {
+        "score": 19,
+        "text": "Ihr PSA-Wert ist sehr niedrig. Es besteht kein Verdacht auf das Vorliegen von Krebs. Aufgrund Ihres Alters von über 70 Jahren ist es unwahrscheinlich, dass Sie an Prostatakrebs versterben werden. Deswegen sind leitlinienkonform keine weiteren PSA-Wert-Bestimmungen vorgesehen."
+    },
+    {
+        "score": 20,
+        "text": "Ihr PSA-Wert war in der letzten Untersuchung erhöht. Das kann verschiedene Ursachen haben, z.B. eine Prostataentzündung, Damm-belastende Tätigkeiten wie Fahrradfahren oder auch Krebs. Da Sie über 70 Jahre alt sind, wird ihre Lebenserwartung nicht zwangsläufig von einem eventuell vorliegenden Prostatakrebs beeinflusst. In Ihrem Fall gibt es kein leitliniengerechtes Vorgehen. Lassen Sie sich deswegen von Ihrem Urologen/ Ihrer Urologin oder Hausarzt/Hausärztin beraten."
+    },
+    {
+        "score": 21,
+        "text": "Lassen Sie sich zu den Vor- und Nachteilen einer Prostatakrebsfrüherkennungsuntersuchung von Ihrem Urologen/ Ihrer Urologin oder Hausarzt/Hausärztin beraten."
+    },
+    {
+        "score": 22,
+        "text": "Wir empfehlen Ihnen, einen Termin bei Ihrem Frauenarzt/ Ihrer Frauenärztin zu vereinbaren."
+    },
+    { 
+        "score": 23,
+        "text": "Wir empfehlen Ihnen, sich aufgrund Ihrer familiären Vorbelastung bei Ihrem Hausarzt/Ihrer Hausärztin über Vorsorge zu informieren."
+    },
+    {
+        "score": 24,
+        "text": "Wir empfehlen Ihnen, einen Termin bei Ihrem betreuenden Frauenarzt/ Ihrer betreuenden Frauenärztin bezüglich Vorsorge zu vereinbaren."
+    },
+    {
+        "score": 25,
+        "text": "Ihre Vorsorgeuntersuchung ist aktuell. Bitte denken Sie weiterhin an eine jährliche Vorsorge bei Ihrem Frauenarzt/ Ihrer Frauenärztin."
+    },
+    {
+        "score": 26,
+        "text": "Hierbei handelt es sich nicht um eine Abklärung von Symptomen und nicht mehr um Vorsorge. Bitte stellen Sie sich daher umgehend bei Ihrem Hausarzt / Ihrer Hausärztin."
+    },
+    {
+        "score": 27,
+        "text": "Bitte denken Sie an Ihre nächste Untersuchung nach Maßgabe der Koloskopie-Voruntersuchung"
+    },
+    {
+        "score": 101,
+        "text": "Übergewicht"
+    },
+    {
+        "score": 102,
+        "text": "Untergewicht (stellt ein erhöhtes Risiko für Brustkrebs dar)"
+    },
+    {
+        "score": 103,
+        "text": "Ernährung mit mehrmals pro Woche rotem Fleisch"
+    },
+    {
+        "score": 104,
+        "text": "Bewegungsmangel"
+    },
+    {
+        "score": 105,
+        "text": "Rauchen"
+    },
+    {
+        "score": 106,
+        "text": "erhöhter Alkoholkonsum"
+    },
+    {
+        "score": 107,
+        "text": "Diabetes mellitus Typ II"
+    }
+    
+]
+}

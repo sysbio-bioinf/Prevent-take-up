@@ -1,0 +1,201 @@
+{
+    "name": "Beurteilung des Risikos aufgrund Ihres Lebensstils",
+    "instructions": "Vielen Dank für Ihre Teilnahme an der Bewertung der „Prevent-Take-Up“ App. Es werden dabei keine persönlichen Daten übermittelt.",
+    "questions": [
+        {
+            "questionID": "id.sex",
+            "questionType": "SingleChoice",
+            "text": "Welches Geschlecht haben Sie?",
+            "answers": [{
+                    "text": "Männlich",
+                    "jumpRules": [{
+                        "jumpID": "id.weight",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Weiblich",
+                    "jumpRules": [{
+                        "jumpID": "id.weight",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionType": "NumberInput",
+            "questionID": "id.weight",
+            "text": "Welches Körpergewicht haben Sie (in kg)?",
+            "answers": [{
+                    "text": "in Kg",
+                    "jumpRules": [{
+                        "jumpID": "id.size",
+                        "jumpRule": "true"
+                    }]
+                }]
+        },
+        {
+            "questionType": "NumberInput2",
+            "questionID": "id.size",
+            "text": "Welche Körpergröße haben Sie (in cm)?",
+            "answers": [{
+                    "text": "in cm",
+                    "jumpRules": [{
+                        "jumpID": "id.meat",
+                        "score" : [1],
+                        "jumpRule": "id.weight / id.size / 10 * id.size / 10 > 25"
+                    },
+                    {
+                        "jumpID": "id.meat",
+                        "score" : [5],
+                        "jumpRule": "((id.weight / ((id.size / 10) * (id.size / 10))) < 18.5) && id.sex == 1"
+                    },
+                    {
+                        "jumpID": "id.meat",
+                        "jumpRule": "true"
+                    }]
+                }]
+        },
+        {
+            "questionID": "id.meat",
+            "questionType": "SingleChoice",
+            "text": "Essen Sie mehrmals pro Woche rotes Fleisch?",
+            "answers": [{
+                    "text": "ja",
+                    "jumpRules": [{
+                        "jumpID": "id.activity",
+                        "score": [2],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "nein",
+                    "jumpRules": [{
+                        "jumpID": "id.activity",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.activity",
+            "questionType": "SingleChoice",
+            "text": "Bitte schätzen Sie Ihren Energieverbrauch pro Woche ein und wählen dann die für Sie passende Antwort aus?",
+            "answers": [{
+                    "text": "Hoch z.B. > 10 Min. tägliches Treppensteigen oder > 30 Min. tägliches Radfahren oder vergleichbares",
+                    "jumpRules": [{
+                        "jumpID": "id.smoking",
+                        "score": [3],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Gering",
+                    
+                    "jumpRules": [{
+                        "jumpID": "id.smoking",
+                        "score": [3],
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.smoking",
+            "questionType": "SingleChoice",
+            "text": "Rauchen Sie?",
+            "answers": [{
+                    "text": "Ja",
+                    
+                    "jumpRules": [{
+                        "jumpID": "id.alcohol",
+                        "score": [3],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Nein",
+                    "jumpRules": [{
+                        "jumpID": "id.alcohol",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.alcohol",
+            "questionType": "SingleChoice",
+            "text": "Trinken Sie Wein/Bier/Sekt/Spirituosen?",
+            "answers": [{
+                    "text": "Nein oder selten",
+                    
+                    "jumpRules": [{
+                        "jumpID": "id.diabetes",
+                        "score": [3],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "Ja",
+                    "jumpRules": [{
+                        "jumpID": "id.alcoholMass",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        },
+        {
+            "questionID": "id.alcoholMassFemale",
+            "questionType": "SingleChoice",
+            "text": "Wie oft trinken Sie pro Tag höchstens 2 Gläser Wein (250 ml) oder Bier (0,3l) oder äquivalente Mengen?",
+            "answers": [{
+                    "text": "an 1 bis 5 Tagen pro Woche",
+                    
+                    "jumpRules": [{
+                        "jumpID": "id.diabetes",
+                        "score": [3],
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "an 6 oder 7 Tagen pro Woche",
+                    "jumpRules": [{
+                        "jumpID": "id.alcoholMass",
+                        "jumpRule": "true"
+                    }]
+                },
+                {
+                    "text": "pro Tag mehr als 1 Glas Wein (125 ml) oder Bier (0,3 ml) oder 2 Gläser Spirituosen (20 ml), mehrmals pro Woche",
+                    "jumpRules": [{
+                        "jumpID": "id.alcoholMass",
+                        "jumpRule": "true"
+                    }]
+                }
+            ]
+        }
+    ],
+    "interpretations": [{
+        "score": 0,
+        "text": "Da die „Prevent-Take-Up“-App eine Anwendung zur Information zu Vorsorgeleistungen bei bisher nicht betroffenen Personen ist, können Patient:innen, die bereits eine bösartige Krebserkrankung hatten, leider nicht beraten werden. Sie benötigen in diesem Fall eine auf Ihre Erkrankung individualisierte Vorsorge durch Ihren betreuenden Arzt/ Ihre betreuende Ärztin."
+    },
+    {
+        "score": 1,
+        "text": "Auf Basis Ihrer Antworten empfehlen wir Ihnen sich bezüglich Darmkrebsvorsorge bei Ihrem betreuenden Arzt/ Ihrer betreuenden Ärztin zu erkundigen."
+    },
+    {
+        "score": 2,
+        "text": "Ihre letzte Vorsorgeuntersuchung liegt mehr als ein Jahr zurück. Wir empfehlen Ihnen, einen Termin für die jährliche Vorsorge bei Ihrem betreuenden Frauenarzt/ Ihrer betreuenden Frauenärztin zu vereinbaren."
+    },
+    {
+        "score": 3,
+        "text": "Ihre Vorsorgeuntersuchung ist aktuell. Bitte denken Sie weiterhin an die jährliche Brustkrebsvorsorge bei Ihrem betreuenden Frauenarzt/ Ihrer betreuenden Frauenärztin und regelmäßige Selbstuntersuchung der Brust."
+    },
+    { 
+        "score": 4,
+        "text": "Wenn Sie bei der Selbstuntersuchung neu aufgetretene Knoten in Ihrer Brust entdeckt haben, empfiehlt sich die zeitnahe Vorstellung bei Ihrem betreuenden Frauenarzt/ Ihrer betreuenden Frauenärztin. Bitte vereinbaren Sie zeitnah einen Termin bei Ihrem betreuenden Frauenarzt/ Ihrer betreuenden Frauenärztin zu einer weiteren Abklärung."
+    },
+    {
+        "score": 5,
+        "text": "Lassen Sie sich über weitere notwendige Maßnahmen von Ihrem betreuenden Urologen/ Ihrer betreuenden Urologin oder Hausarzt/ Hausärztin beraten."
+    }]
+}

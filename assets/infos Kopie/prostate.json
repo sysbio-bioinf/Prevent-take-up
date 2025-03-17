@@ -1,0 +1,24 @@
+{
+    "name": "Informationen zu Prostatakrebs",
+    "topics": [{
+            "name": "Was ist Prostatakrebs?",
+            "text": "Lorem ipsum etc.",
+            "file": "assets/infos/whats_prostate.html"
+        },
+        {
+            "name": "Mögliche Symptome",
+            "text": "Lorem ipsum etc.",
+            "file": "assets/infos/symptoms_prostate.html"
+        },
+        {
+            "name": "Risikofaktoren",
+            "text": "Lorem ipsum etc.",
+            "file": "assets/infos/risks_prostate.html"
+        },
+        {
+            "name": "Wann und warum ist eine Vorsorge unter Berücksichtigung persönlichen Risikos sinnvoll?",
+            "text": "Lorem ipsum etc.",
+            "file": "assets/infos/prevent_prostate.html"
+        }
+    ]
+}
