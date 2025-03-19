@@ -1,6 +1,6 @@
 # questionnaires
 
-A Flutter app with psychological questionnaires. Design inspired by [Surveys](https://dribbble.com/shots/3928903-Surveys) by [Shpetim Ujkani](https://dribbble.com/ShpetimUjkani).
+A Flutter app with questionnaires. Design inspired by [Surveys](https://dribbble.com/shots/3928903-Surveys) by [Shpetim Ujkani](https://dribbble.com/ShpetimUjkani).
 
 ## Screenshots
 
